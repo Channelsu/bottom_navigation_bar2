@@ -6,6 +6,14 @@ class Nav extends StatefulWidget {
 }
 
 class _NavState extends State<Nav> {
+
+  int selectedIndex = 0;
+  List<Widget> _tabs = [
+    Text('ホーム'),
+    Text('メッセージ'),
+    Text('アカウント'),
+  ];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,6 +21,13 @@ class _NavState extends State<Nav> {
         title: Text('Bottom Nav Bar'),
       ),
       body: Text('ホーム画面'),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('ホーム')),
+          BottomNavigationBarItem(icon: Icon(Icons.message), title: Text('メッセージ')),
+          BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('アカウント')),
+        ],
+      ),
     );
   }
 }
