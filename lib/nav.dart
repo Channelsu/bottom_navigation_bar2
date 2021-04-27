@@ -7,12 +7,18 @@ class Nav extends StatefulWidget {
 
 class _NavState extends State<Nav> {
 
-  int selectedIndex = 0;
+  int _selectedIndex = 0;
   List<Widget> _tabs = [
     Text('ホーム'),
     Text('メッセージ'),
     Text('アカウント'),
   ];
+
+  void _onItemTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -20,13 +26,17 @@ class _NavState extends State<Nav> {
       appBar: AppBar(
         title: Text('Bottom Nav Bar'),
       ),
-      body: Text('ホーム画面'),
+      body: Center(
+        child: _tabs[_selectedIndex]
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('ホーム')),
           BottomNavigationBarItem(icon: Icon(Icons.message), title: Text('メッセージ')),
           BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('アカウント')),
         ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTap,
       ),
     );
   }
