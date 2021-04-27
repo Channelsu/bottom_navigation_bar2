@@ -12,6 +12,7 @@ class _NavState extends State<Nav> {
       appBar: AppBar(
         title: Text('Bottom Nav Bar'),
       ),
+      body: Text('ホーム画面'),
     );
   }
 }
