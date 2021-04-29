@@ -1,3 +1,4 @@
+import 'package:bottomnavigationbar2/Home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Nav extends StatefulWidget {
@@ -9,7 +10,7 @@ class _NavState extends State<Nav> {
 
   int _selectedIndex = 0;
   List<Widget> _tabs = [
-    Text('ホーム'),
+    Home(),
     Text('メッセージ'),
     Text('アカウント'),
   ];
